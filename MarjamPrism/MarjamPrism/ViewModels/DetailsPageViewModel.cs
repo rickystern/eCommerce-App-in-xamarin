@@ -39,7 +39,12 @@ namespace MarjamPrism.ViewModels
             set { SetProperty(ref _image, value); }
         }
 
-       
+        private string _shortDescription;
+        public string ShortDescription
+        {
+            get { return _shortDescription; }
+            set { SetProperty(ref _shortDescription, value); }
+        }
 
         public DetailsPageViewModel(INavigationService navigationService): base(navigationService)
         {
@@ -55,6 +60,7 @@ namespace MarjamPrism.ViewModels
                 Laptop = parameters[NavParamKeys.PRODUCT_NAV_KEY] as Product;
                 Name = Laptop.Name;
                 Image = Laptop.Image;
+                ShortDescription = Laptop.ShortDescription;
             }
             catch (Exception e)
             {

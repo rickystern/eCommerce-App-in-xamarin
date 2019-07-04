@@ -7,10 +7,36 @@
              Title="{Binding Name}"
              BackgroundColor="White">
 
-    <StackLayout>
-    <Image Source="{Binding Image}"/>
-    <Label Text="{Binding Name}"></Label>
-        <Button Image="fav.png" Padding="10"></Button>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    
+
+        <Grid BackgroundColor="White"  Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="2*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="backgroundImage" Source="{Binding Image}"  Grid.ColumnSpan="3" Grid.Column='0' Grid.Row="0" Aspect="AspectFit" Margin="10, 0, 0, 0"/>
+            <Label Text="{Binding ShortDescription}" 
+                                LineBreakMode="WordWrap"                                
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" 
+                                Margin="20, 30"
+                                Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" />
+            
+            <ImageButton x:Name="Favourite" Source="fav.png" Grid.Column='0' Grid.Row="2" BackgroundColor="White" CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center"/>
+            <ImageButton x:Name="map" Source="map.png" Grid.Column='1' Grid.Row="2" BackgroundColor="White"  CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center"/>
+            <Button x:Name="buy" Text="Buy Now" Grid.Column='2' Grid.Row="2" CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center" BackgroundColor="Green"/>
+            
+            
+
+        </Grid>
     </StackLayout>
 
 </ContentPage>

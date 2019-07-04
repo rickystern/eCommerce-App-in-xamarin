@@ -27,7 +27,6 @@
                 ItemsSource= "{Binding Products}"
                 VerticalOptions="FillAndExpand"
                 HasUnevenRows="true"
-                IsPullToRefreshEnabled="true"
                 HorizontalOptions="FillAndExpand"
                 SelectedItem="{Binding SelectedProduct}"
                 >
