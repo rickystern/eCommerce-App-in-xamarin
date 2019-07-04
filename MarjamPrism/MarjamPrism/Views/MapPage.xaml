@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MarjamPrism.Views.MapPage"
+             Title="Store Locator">
+
+
+    <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
+        <maps:Map x:Name="MyMap"
+                  WidthRequest="320"
+                  HeightRequest="200" 
+                  MapType="Hybrid" HasZoomEnabled="True"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                  >
+
+            <maps:Map.ItemTemplate>
+                <DataTemplate>
+                    <maps:Pin Position="{Binding Position}" Label="My Pin"/>
+                </DataTemplate>
+            </maps:Map.ItemTemplate>
+        </maps:Map>
+    </StackLayout>
+</ContentPage>

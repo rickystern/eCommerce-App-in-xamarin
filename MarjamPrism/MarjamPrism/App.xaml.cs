@@ -34,6 +34,7 @@ namespace MarjamPrism
             containerRegistry.RegisterForNavigation<DetailsPage, DetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<CartPage, CartPageViewModel>();
             containerRegistry.RegisterForNavigation<MicPage, MicPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
         }
     }
 }

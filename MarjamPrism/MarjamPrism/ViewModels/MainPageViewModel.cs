@@ -53,7 +53,7 @@ namespace MarjamPrism.ViewModels
         {
             var navigationParams = new NavigationParameters();
             navigationParams.Add(NavParamKeys.PRODUCT_NAV_KEY, (Object) SelectedProduct);
-            await NavigationService.NavigateAsync(nameof(DetailsPage), navigationParams);
+            await NavigationService.NavigateAsync(nameof(MapPage), navigationParams);
         }
 
         async void getlaptops()

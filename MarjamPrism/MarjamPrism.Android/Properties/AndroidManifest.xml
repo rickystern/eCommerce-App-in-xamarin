@@ -1,6 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.appname">
-	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="28" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.companyname.appname" android:installLocation="preferExternal">
+	<uses-sdk android:minSdkVersion="17" android:targetSdkVersion="23" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="MarjamPrism.Android" android:icon="@mipmap/ic_launcher"></application>
+	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<application android:label="MarjamPrism.Android" android:icon="@drawable/home">
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDDQXgkEBpXtM3ocmi0i90WO124Jm0gpnQ" />
+		<uses-library android:name="org.apache.http.legacy" android:required="false" />
+	</application>
 </manifest>
