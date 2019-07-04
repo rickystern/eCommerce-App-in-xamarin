@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<prism:PrismApplication xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
+             x:Class="MarjamPrism.App">
+	<Application.Resources>
+
+        <Color x:Key="AppBackgroundColor">WhiteSmoke</Color>
+        <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
+        <Color x:Key="AndroidNavigationBarColor">#ffff</Color>
+        <Color x:Key="iOSNavigationBarTextColor">Black</Color>
+        <Color x:Key="AndroidNavigationBarTextColor">Black</Color>
+        <Color x:Key="primary-back-title-color">White</Color>
+        <Color x:Key="primary-title-color">Black</Color>
+        <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource Key=primary-back-title-color}"/>
+            <Setter Property="BarTextColor" Value="Black"/>
+        </Style>
+        
+
+    </Application.Resources>
+
+    
+</prism:PrismApplication>

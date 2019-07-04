@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MarjamPrism.Views.MainPage"
+             xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
+    
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" >
+        <!--<ListView ItemsSource="{Binding Products}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Label Text="{Binding Name}" HorizontalOptions="StartAndExpand"></Label>
+                            <Image Source="{Binding Image}" Aspect="AspectFit" HorizontalOptions="End"></Image>
+                        </StackLayout>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>-->
+
+
+        <ListView x:Name="ItemsListView"
+                Margin="10, 0, 10, 0"
+                ItemsSource= "{Binding Products}"
+                VerticalOptions="FillAndExpand"
+                HasUnevenRows="true"
+                IsPullToRefreshEnabled="true"
+                HorizontalOptions="FillAndExpand"
+                SelectedItem="{Binding SelectedProduct}"
+                >
+            <ListView.Behaviors>
+                <b:EventToCommandBehavior EventName="ItemTapped" 
+                                      Command="{Binding ItemSelectedCommand}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout BackgroundColor="White">
+                            <Grid BackgroundColor="White"  Margin="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="60"></RowDefinition>
+                                    <RowDefinition Height="20"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                    <ColumnDefinition Width="20"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Image x:Name="backgroundImage" Source="{Binding Image}"  Grid.RowSpan="2" Grid.Column='0' Grid.Row="0"/>
+                                <Label Text="{Binding Name}" 
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" 
+                                Margin="0, 18, 0, 0"
+                                Grid.Column="1" Grid.Row="0"/>
+                                <Label Text="{Binding Manufacturer}"
+                                LineBreakMode="NoWrap" 
+                                Style="{DynamicResource ListItemTextStyle}" 
+                                FontSize="16" 
+                                Grid.Column="1" Grid.Row="1"/>
+                                <Image Source="https://img.icons8.com/ios-glyphs/30/000000/chevron-right.png"
+                                   x:Name="arrow"
+                                   Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                                />
+
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+    
+
+</ContentPage>
