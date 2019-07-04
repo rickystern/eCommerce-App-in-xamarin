@@ -11,7 +11,7 @@
     <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Padding="0" Margin="0">
         <maps:Map x:Name="MyMap"
                   WidthRequest="320"
-                  HeightRequest="200" 
+                  HeightRequest="200"
                   MapType="Hybrid" HasZoomEnabled="True"
                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                   >

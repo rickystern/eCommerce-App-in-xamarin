@@ -5,8 +5,8 @@
              x:Class="MarjamPrism.App">
 	<Application.Resources>
 
-        <Color x:Key="AppBackgroundColor">WhiteSmoke</Color>
-        <Color x:Key="iOSNavigationBarColor">WhiteSmoke</Color>
+        <Color x:Key="AppBackgroundColor">White</Color>
+        <Color x:Key="iOSNavigationBarColor">White</Color>
         <Color x:Key="AndroidNavigationBarColor">#ffff</Color>
         <Color x:Key="iOSNavigationBarTextColor">Black</Color>
         <Color x:Key="AndroidNavigationBarTextColor">Black</Color>
@@ -15,6 +15,10 @@
         <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
             <Setter Property="BarBackgroundColor" Value="{StaticResource Key=primary-back-title-color}"/>
             <Setter Property="BarTextColor" Value="Black"/>
+        </Style>
+        <Style ApplyToDerivedTypes="True" TargetType="TabbedPage">
+            <Setter Property="UnselectedTabColor" Value="Black"></Setter>
+            <Setter Property="SelectedTabColor" Value="#ffc621"></Setter>
         </Style>
         
 

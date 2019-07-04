@@ -53,7 +53,7 @@ namespace MarjamPrism.ViewModels
         {
             var navigationParams = new NavigationParameters();
             navigationParams.Add(NavParamKeys.PRODUCT_NAV_KEY, (Object) SelectedProduct);
-            await NavigationService.NavigateAsync(nameof(MapPage), navigationParams);
+            await NavigationService.NavigateAsync(nameof(DetailsPage), navigationParams);
         }
 
         async void getlaptops()
@@ -64,6 +64,10 @@ namespace MarjamPrism.ViewModels
 
             
             Products = new ObservableCollection<Product>(bestBuyResult.Products);
+            foreach (var item in Products)
+            {
+                item.Name = item.Name.Substring(0, 60) + "...";
+            }
         }
 
         public override void OnNavigatingTo(INavigationParameters parameters)

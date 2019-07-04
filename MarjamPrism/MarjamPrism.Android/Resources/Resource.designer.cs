@@ -8579,6 +8579,9 @@ namespace MarjamPrism.Droid
 			// aapt resource value: 0x7f0d000e
 			public const int CardView_Light = 2131558414;
 			
+			// aapt resource value: 0x7f0d0202
+			public const int DrawerArrowStyle = 2131558914;
+			
 			// aapt resource value: 0x7f0d01ff
 			public const int MainTheme = 2131558911;
 			
