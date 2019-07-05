@@ -1,6 +1,8 @@
 ﻿using MarjamPrism.Models;
 using MarjamPrism.Views;
 using Newtonsoft.Json;
+using Plugin.Permissions;
+using Plugin.Permissions.Abstractions;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -11,6 +13,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace MarjamPrism.ViewModels
 {
@@ -32,6 +35,8 @@ namespace MarjamPrism.ViewModels
         }
 
         private ObservableCollection<Product> _products;
+        private PermissionStatus status;
+
         public ObservableCollection<Product> Products
         {
             get { return _products; }
@@ -53,7 +58,7 @@ namespace MarjamPrism.ViewModels
         {
             var navigationParams = new NavigationParameters();
             navigationParams.Add(NavParamKeys.PRODUCT_NAV_KEY, (Object) SelectedProduct);
-            await NavigationService.NavigateAsync(nameof(DetailsPage), navigationParams);
+            await NavigationService.NavigateAsync(nameof(MapPage), navigationParams);
         }
 
         async void getlaptops()
@@ -68,6 +73,7 @@ namespace MarjamPrism.ViewModels
             {
                 item.Name = item.Name.Substring(0, 60) + "...";
             }
+
         }
 
         public override void OnNavigatingTo(INavigationParameters parameters)
@@ -77,9 +83,27 @@ namespace MarjamPrism.ViewModels
             
         }
 
+        public override void OnNavigatedFrom(INavigationParameters parameters)
+        {
+            base.OnNavigatedFrom(parameters);
+            GetLocationPermission();
 
-        
+        }
 
+
+        private async void GetLocationPermission()
+        {
+            if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.LocationWhenInUse))
+            {
+                // This is not the actual permission request
+               
+            }
+
+            // This is the actual permission request
+            var results = await CrossPermissions.Current.RequestPermissionsAsync(Permission.LocationWhenInUse);
+            if (results.ContainsKey(Permission.LocationWhenInUse))
+                status = results[Permission.LocationWhenInUse];
+        }
 
     }
 }

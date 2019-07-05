@@ -16,9 +16,9 @@ namespace MarjamPrism.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            base.OnCreate(bundle);
             CrossCurrentActivity.Current.Init(this, bundle);
-            Plugin.CurrentActivity.CrossCurrentActivity.Current.Init(this, bundle);
+            base.OnCreate(bundle);
+            
             Xamarin.FormsMaps.Init(this, bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
             
@@ -28,7 +28,6 @@ namespace MarjamPrism.Droid
         {
             PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-
         }
     }
 
