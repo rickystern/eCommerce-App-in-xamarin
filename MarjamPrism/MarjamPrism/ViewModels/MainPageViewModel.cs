@@ -19,7 +19,7 @@ namespace MarjamPrism.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-
+        private PermissionStatus status;
         private Product _selectedProduct;
         public Product SelectedProduct
         {
@@ -35,7 +35,6 @@ namespace MarjamPrism.ViewModels
         }
 
         private ObservableCollection<Product> _products;
-        private PermissionStatus status;
 
         public ObservableCollection<Product> Products
         {
@@ -58,13 +57,13 @@ namespace MarjamPrism.ViewModels
         {
             var navigationParams = new NavigationParameters();
             navigationParams.Add(NavParamKeys.PRODUCT_NAV_KEY, (Object) SelectedProduct);
-            await NavigationService.NavigateAsync(nameof(MapPage), navigationParams);
+            await NavigationService.NavigateAsync(nameof(DetailsPage), navigationParams);
         }
 
         async void getlaptops()
         {
 
-            var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name&pageSize=30&format=json");
+            var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name,sku&pageSize=30&format=json");
             var bestBuyResult = JsonConvert.DeserializeObject<BestBuyResult>(resp);
 
             
@@ -96,7 +95,7 @@ namespace MarjamPrism.ViewModels
             if (await CrossPermissions.Current.ShouldShowRequestPermissionRationaleAsync(Permission.LocationWhenInUse))
             {
                 // This is not the actual permission request
-               
+
             }
 
             // This is the actual permission request

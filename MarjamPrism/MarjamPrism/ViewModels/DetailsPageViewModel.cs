@@ -1,10 +1,12 @@
 ﻿using MarjamPrism.Models;
+using MarjamPrism.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace MarjamPrism.ViewModels
 {
@@ -32,6 +34,13 @@ namespace MarjamPrism.ViewModels
             set { SetProperty(ref _name, value); }
         }
 
+        private string _sku;
+        public string SKU
+        {
+            get { return _sku; }
+            set { SetProperty(ref _sku, value); }
+        }
+
         private string _image;
         public string Image
         {
@@ -45,11 +54,20 @@ namespace MarjamPrism.ViewModels
             get { return _shortDescription; }
             set { SetProperty(ref _shortDescription, value); }
         }
+        public DelegateCommand MapsViewCommand { get; }
 
         public DetailsPageViewModel(INavigationService navigationService): base(navigationService)
         {
             Title = "CartPage";
             Name = "Nuh Get ntn";
+            MapsViewCommand = new DelegateCommand(async () => await StoreRequestedHandler());
+        }
+
+        private async Task StoreRequestedHandler()
+        {
+            var navigationParams = new NavigationParameters();
+            navigationParams.Add(NavParamKeys.PRODUCT_NAV_KEY, (Object)Laptop);
+            await NavigationService.NavigateAsync(nameof(MapPage), navigationParams);
         }
 
         public  override void OnNavigatingTo(INavigationParameters parameters)
@@ -61,6 +79,7 @@ namespace MarjamPrism.ViewModels
                 Name = Laptop.Name;
                 Image = Laptop.Image;
                 ShortDescription = Laptop.ShortDescription;
+                SKU = Laptop.SKU;
             }
             catch (Exception e)
             {

@@ -14,8 +14,7 @@
                   HeightRequest="200"
                   MapType="Street" HasZoomEnabled="True"
                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                  IsShowingUser="True"
-                  >
+                  IsShowingUser="True">
 
             <maps:Map.ItemTemplate>
                 <DataTemplate>

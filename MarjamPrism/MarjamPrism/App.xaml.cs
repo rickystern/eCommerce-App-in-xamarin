@@ -4,6 +4,7 @@ using MarjamPrism.ViewModels;
 using MarjamPrism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using MarjamPrism.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace MarjamPrism
@@ -35,6 +36,8 @@ namespace MarjamPrism
             containerRegistry.RegisterForNavigation<CartPage, CartPageViewModel>();
             containerRegistry.RegisterForNavigation<MicPage, MicPageViewModel>();
             containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
+            containerRegistry.Register<ILocationServices, LocationServices>();
         }
+
     }
 }

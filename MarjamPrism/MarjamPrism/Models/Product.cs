@@ -61,5 +61,13 @@ namespace MarjamPrism
             get { return _name; }
             set { SetProperty(ref _name, value); }
         }
+
+        private string _sku;
+        [JsonProperty("sku")]
+        public string SKU
+        {
+            get { return _sku; }
+            set { SetProperty(ref _sku, value); }
+        }
     }
 }

@@ -21,7 +21,6 @@
         <local:MainPage Icon="home.png"></local:MainPage>
         <local:MicPage Icon="mic"></local:MicPage>
         <local:CartPage Icon="shop.png"></local:CartPage>
-        <local:MapPage Icon="map.png"></local:MapPage>
     </TabbedPage.Children>
     
 </TabbedPage>
