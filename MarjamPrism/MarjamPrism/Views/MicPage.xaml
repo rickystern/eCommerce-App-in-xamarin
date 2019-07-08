@@ -6,5 +6,12 @@
              x:Class="MarjamPrism.Views.MicPage">
 
 
-    <Label Text="Voice search"></Label>
+    <StackLayout>
+        <ImageButton Source="https://image.flaticon.com/icons/png/512/1458/1458584.png"
+                                   x:Name="search"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20" BackgroundColor="White"
+                                />
+        <Label Text="Tap the mic and try saying 'Show me Macbooks'" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" TextColor="Black" LineBreakMode="WordWrap" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Margin="20"></Label>
+    </StackLayout>
+    
 </ContentPage>

@@ -6,7 +6,7 @@
     
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" >
-        
+        <SearchBar Placeholder="Search for Products here" Margin="20" SearchCommand="{Binding SearchCommand}" Text="{Binding SearchString}"></SearchBar>
         <ListView x:Name="ItemsListView"
                 Margin="10, 0, 10, 0"
                 ItemsSource= "{Binding Products}"
@@ -23,6 +23,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout BackgroundColor="White">
+                            
                             <Grid BackgroundColor="White"  Margin="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="60"></RowDefinition>
@@ -39,14 +40,14 @@
                                 <!--<material:MaterialCard CornerRadius="2" Elevation="1" HeightRequest="80" HorizontalOptions="FillAndExpand" />-->
 
 
-                                <Image x:Name="backgroundImage" Source="{Binding Image}"  Grid.RowSpan="2" Grid.Column='0' Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="8"/>
+                                <Image x:Name="backgroundImage" Source="{Binding Image}"  Grid.RowSpan="3" Grid.Column='0' Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="8"/>
                                 
                                 <Label Text="{Binding Name}" 
                                 LineBreakMode="WordWrap"
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16"
                                 TextColor="Black"
-                                Margin="0, 18, 0, 0"
+                                Margin="10,18,10,0"
                                 Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
                                 
                                 <Label Text="{Binding RegularPrice}"
@@ -54,10 +55,10 @@
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16"
                                 TextColor="Green"
-                                Grid.Column="1" Grid.Row="1" Margin="2,2,0,0"/>
+                                Grid.Column="1" Grid.Row="1" Margin="10,2,0,0"/>
 
 
-                                <!--{Binding (InStoreAvailability) ? ('In Stock') : ('Out Of Stock'))}   This doesn't work when trying to show conditional statement-->
+                                
                                 <Label Text="{Binding InStoreAvailability}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -68,7 +69,7 @@
                                 <Image Source="https://img.icons8.com/ios-glyphs/30/000000/chevron-right.png"
                                    x:Name="arrow"
                                    Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"
-                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                                   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,15,0,0"
                                 />
 
                             </Grid>

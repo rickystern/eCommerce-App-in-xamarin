@@ -10,10 +10,11 @@
             android:TabbedPage.ToolbarPlacement="Bottom" 
             BarBackgroundColor="#FFF" BackgroundColor="#FFFFFF"
             NavigationPage.TitleIcon="logo.png" 
-            BarTextColor="#000000">
+            BarTextColor="#000000" 
+            Visual="Material">
     
 	<TabbedPage.ToolbarItems>
-        <ToolbarItem  Icon="profile.png"/>
+        <ToolbarItem  Icon="profile.png" />
 	</TabbedPage.ToolbarItems>
 
 

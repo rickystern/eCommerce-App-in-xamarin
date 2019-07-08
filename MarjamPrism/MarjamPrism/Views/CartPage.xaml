@@ -4,7 +4,11 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MarjamPrism.Views.CartPage">
-
-
-    <Label Text="Cart Page"></Label>
+    <StackLayout>
+    <Label Text="This page is under construction" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" TextColor="Black" Margin="15"></Label>
+    <ImageButton Source="https://image.flaticon.com/icons/png/512/576/576997.png"
+                                   x:Name="cart"
+                                   HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="20,10,10,20" BackgroundColor="White"
+                                />
+    </StackLayout>
 </ContentPage>
