@@ -8,5 +8,7 @@ namespace MarjamPrism.Views
         {
             InitializeComponent();
         }
+
+       
     }
 }

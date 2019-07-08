@@ -14,7 +14,7 @@
             Visual="Material">
     
 	<TabbedPage.ToolbarItems>
-        <ToolbarItem  Icon="profile.png" />
+        <ToolbarItem  Icon="profile.png"/>
 	</TabbedPage.ToolbarItems>
 
 

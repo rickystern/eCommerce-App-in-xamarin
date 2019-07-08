@@ -20,6 +20,13 @@ namespace MarjamPrism.ViewModels
     public class MainPageViewModel : ViewModelBase
     {
         private string _searchString;
+
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
+        }
         public string SearchString
 
         {
@@ -40,7 +47,12 @@ namespace MarjamPrism.ViewModels
             get { return _text; }
             set { SetProperty(ref _text, value); }
         }
-
+        private string _header;
+        public string Header
+        {
+            get { return _header; }
+            set { SetProperty(ref _header, value); }
+        }
         private ObservableCollection<Product> _products;
 
         public ObservableCollection<Product> Products
@@ -53,13 +65,62 @@ namespace MarjamPrism.ViewModels
 
         public DelegateCommand SearchCommand { get; }
 
+        public DelegateCommand RefreshCommand { get; }
+
         public MainPageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
             Title = "Home";
             ItemSelectedCommand = new DelegateCommand(async () => await ProductSelectedHandler());
             SearchString = "";
+            Header = "Top Products";
+            IsBusy = false;
             SearchCommand = new DelegateCommand(async () => await SearchHandlerAsync());
+            RefreshCommand = new DelegateCommand(async () => await RefreshHandlerAsync());
+
+        }
+
+        async Task RefreshHandlerAsync()
+        {
+            if (IsBusy)
+                return;
+
+            IsBusy = true;
+
+            try
+            {
+                var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products(onSale=true)?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=20&format=json");
+
+                var bestBuyResult = JsonConvert.DeserializeObject<BestBuyResult>(resp);
+
+
+                Products = new ObservableCollection<Product>(bestBuyResult.Products);
+                foreach (var item in Products)
+                {
+                    item.RegularPrice = "$" + item.RegularPrice;
+                    if (item.InStoreAvailability == "true")
+                    {
+                        item.InStoreAvailability = "In Stock";
+                    }
+
+                    else
+                    {
+                        item.InStoreAvailability = "Out of Stock";
+                    }
+
+                }
+            }
+            catch (Exception e )
+            {
+
+                throw e;
+            }
+
+            
+            IsBusy = false;
+            SearchString = "";
+            Header = "Top Products";
+
 
         }
 
@@ -73,7 +134,7 @@ namespace MarjamPrism.ViewModels
             Products = new ObservableCollection<Product>(bestBuyResult.Products);
             foreach (var item in Products)
             {
-                item.Name = item.Name.Substring(0, item.Name.Length/2) + "...";
+                //item.Name = item.Name.Substring(0, item.Name.Length/2) + "...";
                 item.RegularPrice = "$" + item.RegularPrice;
                 if (item.InStoreAvailability == "true")
                 {
@@ -86,6 +147,8 @@ namespace MarjamPrism.ViewModels
                 }
 
             }
+
+            Header = "Results for " + "'" + SearchString + "'";
         }
 
         private async Task ProductSelectedHandler()
@@ -98,9 +161,10 @@ namespace MarjamPrism.ViewModels
         async void getlaptops()
         {
 
-            var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name,sku&pageSize=30&format=json");
+            //var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name,sku&pageSize=30&format=json");
             //var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((categoryPath.id=abcat0204000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=30&format=json");
             //var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((search=laptop))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&format=json");
+            var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products(onSale=true)?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=20&format=json");
 
             var bestBuyResult = JsonConvert.DeserializeObject<BestBuyResult>(resp);
 
@@ -108,7 +172,6 @@ namespace MarjamPrism.ViewModels
             Products = new ObservableCollection<Product>(bestBuyResult.Products);
             foreach (var item in Products)
             {
-                item.Name = item.Name.Substring(0, item.Name.Length / 2) + "...";
                 item.RegularPrice = "$" + item.RegularPrice;
                 if (item.InStoreAvailability == "true")
                 {

@@ -2,6 +2,7 @@
 using Android.Content.PM;
 using Android.OS;
 using Android.Runtime;
+using Android.Views;
 using Plugin.CurrentActivity;
 using Plugin.Permissions;
 using Prism;
@@ -21,8 +22,17 @@ namespace MarjamPrism.Droid
             
             Xamarin.FormsMaps.Init(this, bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            
+
             LoadApplication(new App(new AndroidInitializer()));
+
+            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+
+            uiOptions |= (int)SystemUiFlags.LowProfile;
+            uiOptions |= (int)SystemUiFlags.Fullscreen;
+            uiOptions |= (int)SystemUiFlags.HideNavigation;
+            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+
+            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {
