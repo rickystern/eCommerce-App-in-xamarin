@@ -53,7 +53,7 @@
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
                                 FontSize="16"
-                                TextColor="Black"
+                                TextColor="Green"
                                 Grid.Column="1" Grid.Row="1" Margin="2,2,0,0"/>
 
 

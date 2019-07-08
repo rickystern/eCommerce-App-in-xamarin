@@ -26,10 +26,10 @@ namespace MarjamPrism.Views
             {
                 MyMap.Pins.Add(item);
             }
-            
+
             
 
-            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(37, -122), Distance.FromMiles(20)));
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(33.9441, -118.397594), Distance.FromMiles(20)));
         }
     }
 }

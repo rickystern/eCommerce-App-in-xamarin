@@ -19,9 +19,9 @@ namespace MarjamPrism
         }
 
         
-        private bool _inStoreAvailability;
+        private string _inStoreAvailability;
         [JsonProperty("inStoreAvailability")]
-        public bool InStoreAvailability
+        public string InStoreAvailability
         {
             get { return _inStoreAvailability; }
             set { SetProperty(ref _inStoreAvailability, value); }
@@ -36,9 +36,9 @@ namespace MarjamPrism
         }
 
 
-        private decimal _regularPrice;
+        private string _regularPrice;
         [JsonProperty("regularPrice")]
-        public decimal RegularPrice
+        public string RegularPrice
         {
             get { return _regularPrice; }
             set { SetProperty(ref _regularPrice, value); }

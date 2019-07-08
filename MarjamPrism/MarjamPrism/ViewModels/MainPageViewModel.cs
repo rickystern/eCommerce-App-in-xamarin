@@ -71,6 +71,17 @@ namespace MarjamPrism.ViewModels
             foreach (var item in Products)
             {
                 item.Name = item.Name.Substring(0, 60) + "...";
+                item.RegularPrice = "$" + item.RegularPrice;
+                if (item.InStoreAvailability == "true")
+                {
+                    item.InStoreAvailability = "In Stock";
+                }
+
+                else
+                {
+                    item.InStoreAvailability = "Out of Stock";
+                }
+
             }
 
         }
