@@ -18,7 +18,6 @@
 
             <maps:Map.ItemTemplate>
                 <DataTemplate>
-                    <maps:Pin Position="{Binding Position}" Label="My Pin"/>
                 </DataTemplate>
             </maps:Map.ItemTemplate>
         </maps:Map>

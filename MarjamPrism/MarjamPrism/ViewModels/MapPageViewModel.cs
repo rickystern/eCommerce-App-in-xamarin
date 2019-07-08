@@ -25,8 +25,6 @@ namespace MarjamPrism.ViewModels
             set { SetProperty(ref _stores, value); }
         }
 
-        private Pin Pin = new Pin();
-
         private string _sku;
         public string SKU
         {
@@ -44,8 +42,6 @@ namespace MarjamPrism.ViewModels
         {
             _eventAggregator = eventAggregator;
             _locationService = locationservice;
-
-
         }
 
         public override async void OnNavigatingTo(INavigationParameters parameters)
@@ -54,16 +50,15 @@ namespace MarjamPrism.ViewModels
                 Laptop = parameters[NavParamKeys.PRODUCT_NAV_KEY] as Product;
                 SKU = Laptop.SKU;
                 await getLocations(SKU);
-            try
-            {
                 createPins();
-            }
-            catch (Exception e)
-            {
+                _eventAggregator.GetEvent<UpdateMapPins>().Publish(LocationPins);
+                
 
-                throw e;
-            }  
+        }
 
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            
         }
 
         private void createPins()
@@ -71,17 +66,15 @@ namespace MarjamPrism.ViewModels
             foreach (var item in Stores)
             {
 
+                Pin Position = new Pin();
 
-                Pin.Position = new Position(item.Lat, item.Lng);
-                Pin.Label = item.Name;
-                Pin.Address = item.Address;
+                Position.Position = new Position(item.Lat, item.Lng);
+                Position.Label = item.Name;
+                Position.Address = item.Address;
 
-                LocationPins.Add(Pin); // this line throwing error below
+                
 
-                //at MarjamPrism.ViewModels.MapPageViewModel.createPins () [0x00053] in C:\Users\ShakeaneHinds\Desktop\Xamarin Compare\MarjamPrism\MarjamPrism\MarjamPrism\ViewModels\MapPageViewModel.cs:85 
-                //at MarjamPrism.ViewModels.MapPageViewModel.OnNavigatingTo(Prism.Navigation.INavigationParameters parameters)[0x000bd] in C: \Users\ShakeaneHinds\Desktop\Xamarin Compare\MarjamPrism\MarjamPrism\MarjamPrism\ViewModels\MapPageViewModel.cs:62
-
-
+                LocationPins.Add(Position); 
             }
 
             var a = LocationPins.Count;
