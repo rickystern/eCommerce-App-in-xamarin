@@ -12,16 +12,16 @@
             NavigationPage.TitleIcon="logo.png" 
             BarTextColor="#000000" 
             Visual="Material">
-    
-	<TabbedPage.ToolbarItems>
-        <ToolbarItem  Icon="profile.png"/>
-	</TabbedPage.ToolbarItems>
+
+    <TabbedPage.ToolbarItems>
+        <ToolbarItem  Icon="textsearch.png"/>
+    </TabbedPage.ToolbarItems>
 
 
     <TabbedPage.Children>
         <local:MainPage Icon="home.png"></local:MainPage>
         <local:MicPage Icon="mic"></local:MicPage>
-        <local:CartPage Icon="shop.png"></local:CartPage>
+        <local:CartPage Icon="basket.png"></local:CartPage>
     </TabbedPage.Children>
     
 </TabbedPage>

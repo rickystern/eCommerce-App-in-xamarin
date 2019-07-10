@@ -29,10 +29,10 @@
                                 FontSize="16" 
                                 Margin="20, 30"
                                 Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" />
-            
-            <ImageButton x:Name="Favourite" Source="fav.png" Grid.Column='0' Grid.Row="2" BackgroundColor="White" CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center"/>
-            <ImageButton x:Name="map" Source="map.png" Grid.Column='1' Grid.Row="2" BackgroundColor="White"  CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center" Command="{Binding MapsViewCommand}"/>
-            <Button x:Name="buy" Text="Buy Now" Grid.Column='2' Grid.Row="2" CornerRadius="15" HorizontalOptions="Center" Margin="10" Padding="10" VerticalOptions="Center" BackgroundColor="Green"/>
+
+            <ImageButton x:Name="Favourite" Source="fav.png" Grid.Column='0' Grid.Row="2" BackgroundColor="White" CornerRadius="15" HorizontalOptions="Center" Margin="20" VerticalOptions="EndAndExpand"/>
+            <ImageButton x:Name="map" Source="map.png" Grid.Column='1' Grid.Row="2" BackgroundColor="White"  CornerRadius="15" HorizontalOptions="Center" Margin="20" VerticalOptions="EndAndExpand" Command="{Binding MapsViewCommand}"/>
+            <ImageButton x:Name="buy" Source="shop.png" Grid.Column='2' Grid.Row="2" CornerRadius="15" HorizontalOptions="Center" Margin="20" VerticalOptions="EndAndExpand" BackgroundColor="White"/>
             
             
 
