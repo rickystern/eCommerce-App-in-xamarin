@@ -1,11 +1,10 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
+### Duck Buy shopping app using Xamarin forms ###
 
-* Quick summary
-* Version
+* This demo app was created to test the development process for Xamarin Forms, it makes use of the Best Buy Api and was built using the MVVM design architecture
+* Version 1.0
 * [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
 
 ### How do I get set up? ###
