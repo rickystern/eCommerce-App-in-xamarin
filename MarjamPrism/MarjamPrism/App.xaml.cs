@@ -24,19 +24,21 @@ namespace MarjamPrism
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/Tabs");
+            await NavigationService.NavigateAsync("NavigationPage/TabbedPageContainer");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
-            containerRegistry.RegisterForNavigation<Tabs, TabsViewModel>();
+            containerRegistry.RegisterForNavigation<TabbedPageContainer, TabsViewModel>();
             containerRegistry.RegisterForNavigation<DetailsPage, DetailsPageViewModel>();
             containerRegistry.RegisterForNavigation<CartPage, CartPageViewModel>();
-            containerRegistry.RegisterForNavigation<MicPage, MicPageViewModel>();
+            containerRegistry.RegisterForNavigation<VoiceSearchPage, VoiceSearchViewModel>();
             containerRegistry.RegisterForNavigation<MapPage, MapPageViewModel>();
             containerRegistry.Register<ILocationServices, LocationServices>();
+            containerRegistry.Register<IProductServices, ProductServices>();
+            containerRegistry.Register<ISearchService, SearchService>();
         }
 
     }

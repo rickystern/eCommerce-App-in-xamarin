@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -13,8 +13,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\MicPage.xaml.cs">
-      <DependentUpon>MicPage.xaml</DependentUpon>
+    <Compile Update="Views\TabbedPageContainer.xaml.cs">
+      <DependentUpon>TabbedPageContainer.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\VoiceSearchPage.xaml.cs">
+      <DependentUpon>VoiceSearchPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -28,10 +31,10 @@
     <EmbeddedResource Update="Views\MapPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\MicPage.xaml">
+    <EmbeddedResource Update="Views\VoiceSearchPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Tabs.xaml">
+    <EmbeddedResource Update="Views\TabbedPageContainer.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

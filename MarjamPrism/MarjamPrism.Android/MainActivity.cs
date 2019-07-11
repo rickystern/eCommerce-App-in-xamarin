@@ -25,14 +25,15 @@ namespace MarjamPrism.Droid
 
             LoadApplication(new App(new AndroidInitializer()));
 
-            int uiOptions = (int)Window.DecorView.SystemUiVisibility;
+            //Uncomment below to enable full screen on android 
+            //int uiOptions = (int)Window.DecorView.SystemUiVisibility;
 
-            uiOptions |= (int)SystemUiFlags.LowProfile;
-            uiOptions |= (int)SystemUiFlags.Fullscreen;
-            uiOptions |= (int)SystemUiFlags.HideNavigation;
-            uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
+            //uiOptions |= (int)SystemUiFlags.LowProfile;
+            //uiOptions |= (int)SystemUiFlags.Fullscreen;
+            //uiOptions |= (int)SystemUiFlags.HideNavigation;
+            //uiOptions |= (int)SystemUiFlags.ImmersiveSticky;
 
-            Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
+            //Window.DecorView.SystemUiVisibility = (StatusBarVisibility)uiOptions;
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

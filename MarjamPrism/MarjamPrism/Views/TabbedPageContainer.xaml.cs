@@ -2,9 +2,9 @@
 
 namespace MarjamPrism.Views
 {
-    public partial class Tabs : TabbedPage
+    public partial class TabbedPageContainer : TabbedPage
     {
-        public Tabs()
+        public TabbedPageContainer()
         {
             InitializeComponent();
         }

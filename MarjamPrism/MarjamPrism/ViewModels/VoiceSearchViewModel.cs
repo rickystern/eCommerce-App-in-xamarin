@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace MarjamPrism.ViewModels
 {
-    public class MicPageViewModel : ViewModelBase
+    public class VoiceSearchViewModel : ViewModelBase
     {
-        public MicPageViewModel(INavigationService navigationService) : base(navigationService)
+        public VoiceSearchViewModel(INavigationService navigationService) : base(navigationService)
         {
 
         }

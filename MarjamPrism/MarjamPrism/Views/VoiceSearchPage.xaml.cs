@@ -2,9 +2,9 @@
 
 namespace MarjamPrism.Views
 {
-    public partial class MicPage : ContentPage
+    public partial class VoiceSearchPage : ContentPage
     {
-        public MicPage()
+        public VoiceSearchPage()
         {
             InitializeComponent();
         }

@@ -2,7 +2,6 @@
 using MarjamPrism.Services;
 using Prism.Events;
 using Prism.Navigation;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xamarin.Forms.Maps;

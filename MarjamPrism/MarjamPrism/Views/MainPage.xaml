@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MarjamPrism.Views.MainPage"
              xmlns:b="clr-namespace:Prism.Behaviors;assembly=Prism.Forms">
-    
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" >
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
         <SearchBar Placeholder="Search for Products here" Margin="20" SearchCommand="{Binding SearchCommand}" Text="{Binding SearchString}"></SearchBar>
         <Label Text="{Binding Header}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" TextColor="Black" Margin="10"></Label>
+        
         <ListView x:Name="ItemsListView"
                 Margin="10, 0, 10, 0"
                 ItemsSource= "{Binding Products}"
@@ -18,15 +19,18 @@
                 SeparatorVisibility="None"
                 IsPullToRefreshEnabled="True"
                 RefreshCommand="{Binding RefreshCommand}"
-                IsRefreshing="{Binding IsBusy, Mode=OneWay}">
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}" HorizontalScrollBarVisibility="Never"
+                >
             <ListView.Behaviors>
                 <b:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ItemSelectedCommand}"/>
             </ListView.Behaviors>
+
             <ListView.ItemTemplate>
                 <DataTemplate>
+
                     <ViewCell>
                         <StackLayout BackgroundColor="White">
-                            
+
                             <Grid BackgroundColor="White"  Margin="10">
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="60"></RowDefinition>
@@ -44,7 +48,7 @@
 
 
                                 <Image x:Name="backgroundImage" Source="{Binding Image}"  Grid.RowSpan="3" Grid.Column='0' Grid.Row="0" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="8"/>
-                                
+
                                 <Label Text="{Binding Name}" 
                                 LineBreakMode="WordWrap"
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -52,7 +56,7 @@
                                 TextColor="Black"
                                 Margin="10,18,10,0"
                                 Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"/>
-                                
+
                                 <Label Text="{Binding RegularPrice}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -61,7 +65,7 @@
                                 Grid.Column="1" Grid.Row="1" Margin="10,2,0,0"/>
 
 
-                                
+
                                 <Label Text="{Binding InStoreAvailability}"
                                 LineBreakMode="NoWrap" 
                                 Style="{DynamicResource ListItemTextStyle}" 
@@ -78,9 +82,12 @@
                             </Grid>
                         </StackLayout>
                     </ViewCell>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
+
         </ListView>
+        
     </StackLayout>
     
     
