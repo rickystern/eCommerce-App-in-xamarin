@@ -107,7 +107,14 @@ namespace MarjamPrism.ViewModels
         private async Task SearchHandlerAsync()
         {
 
-            Products = await _searchService.GetSearchResults(SearchString);
+            if (!(SearchString == ""))
+            {
+                    Products = await _searchService.GetSearchResults(SearchString);
+            }
+            else
+            {
+                SearchString = "";
+            }
 
             Header = "Results for " + "'" + SearchString + "'";
         }

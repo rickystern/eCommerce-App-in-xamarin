@@ -6,7 +6,11 @@
 
 
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand" Orientation="Vertical">
-        <SearchBar Placeholder="Search for Products here" Margin="20" SearchCommand="{Binding SearchCommand}" Text="{Binding SearchString}"></SearchBar>
+        <SearchBar Placeholder="Search for Products here" Margin="20" SearchCommand="{Binding SearchCommand}" Text="{Binding SearchString}">
+            <SearchBar.Behaviors>
+                <b:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchCommand}"/>
+            </SearchBar.Behaviors>
+        </SearchBar>
         <Label Text="{Binding Header}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="18" TextColor="Black" Margin="10"></Label>
         
         <ListView x:Name="ItemsListView"
