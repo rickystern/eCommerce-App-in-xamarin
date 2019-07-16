@@ -1,4 +1,5 @@
-﻿using MarjamPrism.ViewModels;
+﻿using MarjamPrism.Models;
+using MarjamPrism.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace MarjamPrism.Services
         {
             try
             {
-                var resp = await new HttpClient().GetStringAsync("https://api.bestbuy.com/v1/products((search=" + SearchString + "))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=30&format=json");
+                var resp = await new HttpClient().GetStringAsync(BaseUrl.BASE_URL+"products((search=" + SearchString + "))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=30&format=json");
 
                 var bestBuyResult = JsonConvert.DeserializeObject<BestBuyResult>(resp);
                 ObservableCollection<Product> Products = new ObservableCollection<Product>(bestBuyResult.Products);
